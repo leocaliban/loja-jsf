@@ -5,7 +5,7 @@
 	version="3.0">
 	
 	<welcome-file-list>
-		<welcome-file>Home.xhtml</welcome-file>
+		<welcome-file>home.xhtml</welcome-file>
 	</welcome-file-list>
 	
 	<display-name>loja-jsf</display-name>

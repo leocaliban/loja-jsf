@@ -6,6 +6,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp"/>
         <property name="java-output-path" value="/loja-jsf/target/classes"/>
-        <property name="context-root" value="LojaJSF"/>
+        <property name="context-root" value="loja"/>
     </wb-module>
 </project-modules>
