@@ -12,10 +12,11 @@
 		<ui:insert name="titulo">LojaJSF</ui:insert>
 	</title>
 	<h:outputStylesheet library="css" name="sistema.css" />
+	<h:outputScript library="js" name="jquery.maskMoney.js"/>
 </h:head>
 
 <h:body>
-	<p:ajaxStatus styleClass="ajax-status">
+	<p:ajaxStatus styleClass="ajax-status" onsuccess="configurarMoeda()">
 		<f:facet name="start">
 			<h:graphicImage library="images" name="loader.gif" />
 		</f:facet>
@@ -40,5 +41,18 @@
 	<footer>
 		INFORMAÇÕES ADICIONAIS, CONTATO, REDES SOCIAIS.
 	</footer>
+	
+	<script>
+		function configurarMoeda() {
+			$(".moeda").maskMoney({ decimal: ",", thousands: ".", allowZero: true });			
+		}
+		
+		$(document).ready(function() {
+			configurarMoeda();
+		});
+	
+	</script>
+	
+	
 </h:body>
 </html>
