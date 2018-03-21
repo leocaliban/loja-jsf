@@ -15,6 +15,14 @@
 </h:head>
 
 <h:body>
+	<p:ajaxStatus styleClass="ajax-status">
+		<f:facet name="start">
+			<h:graphicImage library="images" name="loader.gif" />
+		</f:facet>
+		<f:facet name="complete">
+			<h:outputText value="" />
+		</f:facet>
+	</p:ajaxStatus>	 			
 	<header>
 		<div>
 			<h:link>
@@ -22,16 +30,15 @@
 			</h:link>
 		</div>
 	</header>
+	
+		<div id="conteudo">
+		<ui:insert name="corpo"/>
+	</div>
+	
+	<p:separator style="margin-top: 20px;" />
+	
+	<footer>
+		INFORMAÇÕES ADICIONAIS, CONTATO, REDES SOCIAIS.
+	</footer>
 </h:body>
-
-<div id="conteudo">
-	<ui:insert name="corpo"/>
-</div>
-
-<p:separator style="margin-top: 20px;" />
-
-<footer>
-	INFORMAÇÕES ADICIONAIS, CONTATO, REDES SOCIAIS.
-</footer>
-
 </html>
