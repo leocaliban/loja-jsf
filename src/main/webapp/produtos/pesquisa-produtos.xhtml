@@ -34,19 +34,28 @@
 				rows="13" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom" rendered="true"> 
 				
 				<p:column headerText="SKU" style="text-align: center; width: 100px;" >
-					<h:outputText value="111" />
+					<h:outputText value="9853" />
 				</p:column> 
 				
 				<p:column headerText="Nome" >
-					<h:outputText value="Cerveja" />
+					<h:outputText value="Heineken" />
 				</p:column>
 				
 				<p:column headerText="Categoria" style="width: 250px;"  >
-					<h:outputText value="Bebida" />
+					<h:outputText value="Bebidas" />
 				</p:column>
 				
-				<p:column headerText="Categoria" style="width: 100px; text-align: center;"  >
+				<p:column headerText="Valor unitário" style="text-align: right; width: 120px;"  >
+					<h:outputText value="R$ 3,79" />
+				</p:column>
+				
+				<p:column headerText="Estoque" style="text-align: center; width: 100px;"  >
+					<h:outputText value="593" />
+				</p:column>
+				
+				<p:column headerText="Ações" style="width: 100px; text-align: center;"  >
 					<p:button icon="ui-icon-pencil" title="Editar" />
+					<p:commandButton icon="ui-icon-trash" title="Excluir" />
 				</p:column>		
 						
 			</p:dataTable>
