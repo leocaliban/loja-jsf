@@ -9,7 +9,7 @@
 	
 	<ui:define name="corpo">
 		<h:form>
-			<h1>Pesquisa de Produtos</h1>
+			<h1 style="margin-top:10px;">Pesquisa de Produtos</h1>
 			
 			<p:toolbar style="margin-top:20px;">
 				<p:toolbarGroup>
@@ -31,7 +31,7 @@
 			
 			<p:dataTable id="tabelaProdutos" value="#{pesquisaProdutosBean.produtosFiltrados}" var="varProduto" 
 				style="margin-top: 20px" emptyMessage="Nenhum produto encontrado." 
-				rows="13" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom" rendered="true"> 
+				rows="13" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom"> 
 				
 				<p:column headerText="SKU" style="text-align: center; width: 100px;" >
 					<h:outputText value="9853" />

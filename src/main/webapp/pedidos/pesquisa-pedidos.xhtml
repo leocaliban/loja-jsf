@@ -1,0 +1,89 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	<ui:define name="titulo">Pesquisa de Pedidos</ui:define>
+	
+	<ui:define name="corpo">
+		<h:form>
+			<h1 style="margin-top:10px;">Pesquisa de Pedidos</h1>
+			
+			<p:toolbar style="margin-top:20px;">
+				<p:toolbarGroup>
+					<p:commandButton value="Pesquisar" id="botaoPesquisar"/>
+				</p:toolbarGroup>
+				
+				<p:toolbarGroup align="right">
+					<p:button value="Novo"/>
+				</p:toolbarGroup>
+			</p:toolbar>
+			
+			<p:panelGrid columns="2" id="painel" style="width:100%; margin-top:20px;" columnClasses="rotulo, campo">
+				<p:outputLabel value="Número" />
+				<h:panelGroup>
+					<p:inputText size="10" />
+					a
+					<p:inputText size="10" />
+				</h:panelGroup>
+				
+				<p:outputLabel value="Data de criação" />
+				<h:panelGroup>
+					<p:calendar size="10" pattern="dd/MM/yyyy" />
+					a
+					<p:calendar size="10" pattern="dd/MM/yyyy" />
+				</h:panelGroup>
+				
+				<p:outputLabel value="Vendedor" for="vendedor" />
+				<p:inputText id="vendedor" size="40" />
+				
+				<p:outputLabel value="Cliente" for="cliente" />
+				<p:inputText id="cliente" size="40" />
+				
+				<p:outputLabel value="Status" for="status"/>
+				<p:selectManyCheckbox id="status">
+					<f:selectItem itemLabel="Orçamento"/>
+					<f:selectItem itemLabel="Emitido"/>
+					<f:selectItem itemLabel="Cancelado"/>
+				</p:selectManyCheckbox>
+			</p:panelGrid>
+			
+			<p:dataTable id="tabelaPedidos" value="#{pesquisaPedidosBean.pedidosFiltrados}" var="varPedido" 
+				style="margin-top: 20px" emptyMessage="Nenhum pedido encontrado." 
+				rows="13" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom">
+				
+				<p:column headerText="Número" style="text-align: center; width: 100px;" >
+					<h:outputText value="15" />
+				</p:column>
+				
+				<p:column headerText="Cliente" >
+					<h:outputText value="Jack Bauer" />
+				</p:column>
+				
+				<p:column headerText="Vendedor" >
+					<h:outputText value="Héctor Salazar" />
+				</p:column>
+				
+				<p:column headerText="Data de criação" style="text-align: center; width: 140px;" >
+					<h:outputText value="10/08/2016" />
+				</p:column>
+				
+				<p:column headerText="Valor total" style="text-align: right; width: 120px;" >
+					<h:outputText value="R$ 500,00" />
+				</p:column>
+				
+				<p:column headerText="Status" style="width: 100px;" >
+					<h:outputText value="Emitido" />
+				</p:column>
+				
+				<p:column headerText="Ações" style="width: 50px; text-align: center;" >
+					<p:button icon="ui-icon-pencil" title="Editar" />
+				</p:column>	
+				
+			</p:dataTable>
+			
+		</h:form>
+	</ui:define>
+</ui:composition>
