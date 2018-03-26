@@ -16,9 +16,14 @@
 		
 		<p:tabView style="margin-top: 20px;">
 			<p:tab title="Itens">
+				<ui:include src="/WEB-INF/template/pedidos/itens-pedido.xhtml" />
 			</p:tab>
-			<p:tab title="Dados de entrega"></p:tab>
-			<p:tab title="Observação"></p:tab>
+			<p:tab title="Dados de entrega">
+				<ui:include src="/WEB-INF/template/pedidos/dados-entrega-pedido.xhtml" />
+			</p:tab>
+			<p:tab title="Observação">
+				<ui:include src="/WEB-INF/template/pedidos/observacao-pedido.xhtml" />
+			</p:tab>
 		
 		</p:tabView>
 		

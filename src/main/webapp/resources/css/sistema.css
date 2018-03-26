@@ -74,3 +74,27 @@ footer{
 	width: 35px;
 	height: 35px;
 }
+
+.produto-tabela input {
+	width: 99%;
+}
+.ui-autocomplete-input{
+	width: 99%;
+}
+
+/* Customiza TabView */
+.ui-tabs .ui-tabs-panel{
+	padding: 0.5em 0.2em !important;
+}
+
+.ui-tabs{
+	padding: 0px !important;
+}
+
+.ui-tabs .ui-tabs-nav {
+	margin: -1px !important;
+}
+
+.ui-tabs.ui-tabs-top > .ui-tabs-nav{
+	padding: 0px !important;
+}
