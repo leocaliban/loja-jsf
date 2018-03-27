@@ -25,11 +25,36 @@
 		</f:facet>
 	</p:ajaxStatus>	 			
 	<header>
-		<div>
-			<h:link>
+		<div style="float: left;">
+			<h:link outcome="/home">
 				<h:graphicImage library="images" name="logo.png" styleClass="logo" />
 			</h:link>
 		</div>
+		<div style="float:right; margin-right: 110px; margin-top: 6px;">
+			<span style="float: left; height: 30px; line-height: 30px; margin-right: 60px;margin-top: 6px; ">
+				Olá usuário
+			</span>
+			<h:form style="display: inline-block;">
+				<p:menubar>
+					<p:submenu label="Cadastros">
+						<p:menuitem value="Clientes" />
+						<p:menuitem value="Usuários" />
+						<p:separator/>
+						<p:menuitem value="Categorias" />
+						<p:menuitem value="Produtos" outcome="/produtos/pesquisa-produtos" />
+					</p:submenu>
+					<p:submenu label="Pedidos">
+						<p:menuitem value="Novo pedido" outcome="/pedidos/cadastro-pedido" />
+						<p:menuitem value="Pesquisa" outcome="/pedidos/pesquisa-pedidos" />
+					</p:submenu>
+					<p:menuitem value="Sair" />
+				</p:menubar>
+			</h:form>
+		</div>
+		<div style="clear: both;"></div>
+		
+		
+		
 	</header>
 	
 		<div id="conteudo">
