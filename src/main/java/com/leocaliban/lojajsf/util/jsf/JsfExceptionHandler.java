@@ -12,9 +12,12 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
 
+import com.leocaliban.lojajsf.service.NegocioException;
+
 public class JsfExceptionHandler extends ExceptionHandlerWrapper{
 
 	private ExceptionHandler wrapped;
+	
 	
 	public JsfExceptionHandler(ExceptionHandler wrapped) {
 		this.wrapped = wrapped;
@@ -40,17 +43,41 @@ public class JsfExceptionHandler extends ExceptionHandlerWrapper{
 			ExceptionQueuedEventContext context = (ExceptionQueuedEventContext) evento.getSource();
 			
 			Throwable exception = context.getException();
+			NegocioException negocioException = getNegocioException(exception);
 			
+			boolean handled = false;
 			try {
 				if(exception instanceof ViewExpiredException) {
+					handled = true;
 					redirecionar("/");
+				}
+				else if(negocioException != null) {
+					handled = true;
+					FacesUtil.adicionarMensagemErro(negocioException.getMessage());
+				}
+				else {
+					handled = true;
+					redirecionar("/erro.xhtml");
 				}
 			}
 			finally {
-				eventos.remove();
+				if(handled) {
+					eventos.remove();
+				}
 			}
 		}
 		getWrapped().handle();
+	}
+
+	//varre a pilha de exceções procurando NegocioException com recursividade
+	private NegocioException getNegocioException(Throwable exception) {
+		if(exception instanceof NegocioException) {
+			return (NegocioException) exception;
+		}
+		else if(exception.getCause() != null) {
+			return getNegocioException(exception.getCause());
+		}
+		return null;
 	}
 
 	private void redirecionar(String pagina) {
