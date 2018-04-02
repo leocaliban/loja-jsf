@@ -2,17 +2,44 @@ package com.leocaliban.lojajsf.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "endereco")
 public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue
 	private Long id;
+	
+	@Column(nullable = false, length = 150)
 	private String rua;
+	
+	@Column(nullable = false, length = 20)
 	private String numero;
+	
+	@Column(length = 100)
 	private String complemento;
+	
+	@Column(nullable = false, length = 60)
 	private String cidade;
+	
+	@Column(nullable = false, length = 60)
 	private String estado;
+	
+	@Column(nullable = false, length = 9)
 	private String cep;
+	
+	@ManyToOne
+	@JoinColumn(name = "cliente_id", nullable = false)
 	private Cliente cliente;
 	
 	
